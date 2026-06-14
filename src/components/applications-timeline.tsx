@@ -196,6 +196,23 @@ export function ApplicationsTimeline() {
         </div>
       ),
     },
+    {
+      title: "QR-код материалов",
+      content: (
+        <div>
+          <p className="text-white text-sm md:text-base font-normal mb-6 leading-relaxed">
+            QR-код для быстрого доступа к учебным материалам. Отсканируйте камерой телефона, чтобы перейти к заданиям.
+          </p>
+          <div className="flex justify-start">
+            <img
+              src="https://cdn.poehali.dev/projects/719842d6-d2bc-4fa6-a8af-5161c873974d/bucket/208b5baa-afc6-465a-8924-0e0a61b72ad7.png"
+              alt="QR-код учебных материалов"
+              className="w-48 h-48 rounded-lg border border-red-500/20"
+            />
+          </div>
+        </div>
+      ),
+    },
   ]
 
   return (
