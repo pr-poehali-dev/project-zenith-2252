@@ -3,40 +3,40 @@ import { Badge } from "@/components/ui/badge"
 
 const features = [
   {
-    title: "Адаптивная нейрообработка",
-    description: "Самооптимизирующиеся алгоритмы, которые обучаются на нейронных паттернах и улучшают интерпретацию сигналов.",
-    icon: "brain",
-    badge: "ИИ",
+    title: "Исторический анализ",
+    description: "Умею работать с первоисточниками, анализировать исторические документы и выявлять причинно-следственные связи событий.",
+    icon: "book",
+    badge: "Источниковедение",
   },
   {
-    title: "Медицинская защита",
-    description: "Шифрование по стандартам FDA со сквозной защитой конфиденциальных нейронных данных.",
-    icon: "lock",
-    badge: "Сертификат",
+    title: "Академическое письмо",
+    description: "Пишу рефераты, эссе и научные работы с соблюдением требований ГОСТ и академического стиля.",
+    icon: "pen",
+    badge: "Письмо",
   },
   {
-    title: "Интуитивное управление",
-    description: "Естественная трансляция мыслей в действия с откликом менее миллисекунды и точностью 99,7%.",
-    icon: "globe",
-    badge: "Точность",
+    title: "Педагогика",
+    description: "Изучаю методику преподавания истории: как объяснять сложное простым языком и вовлекать аудиторию.",
+    icon: "users",
+    badge: "Обучение",
   },
   {
-    title: "Предиктивная калибровка",
-    description: "ML-модели, которые предугадывают намерения пользователя и оптимизируют нейронные пути.",
-    icon: "zap",
-    badge: "Умный",
+    title: "Работа с архивами",
+    description: "Осваиваю навыки работы в библиотеках и архивах: поиск, систематизация и цитирование исторических материалов.",
+    icon: "archive",
+    badge: "Архивы",
   },
   {
-    title: "Биометрическая интеграция",
-    description: "Бесшовная синхронизация с мониторингом жизненных показателей для контроля здоровья.",
-    icon: "link",
-    badge: "Связь",
+    title: "Хронология и картография",
+    description: "Составляю хронологические таблицы, работаю с историческими картами и разбираюсь в периодизации событий.",
+    icon: "map",
+    badge: "Карты",
   },
   {
-    title: "Поддержка XR",
-    description: "Нативная совместимость с AR/VR-средами для терапевтических и рабочих приложений.",
+    title: "Критическое мышление",
+    description: "Умею сопоставлять различные точки зрения историков, оценивать достоверность источников и формировать аргументированную позицию.",
     icon: "target",
-    badge: "XR Ready",
+    badge: "Анализ",
   },
 ]
 
@@ -45,9 +45,9 @@ export function FeaturesSection() {
     <section className="py-24 px-6 bg-background">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-foreground mb-4 font-sans">Возможности нового поколения</h2>
+          <h2 className="text-4xl font-bold text-foreground mb-4 font-sans">Мои компетенции</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Почувствуйте будущее с технологиями, которые переопределяют возможное
+            Навыки и знания, которые я приобретаю на первом курсе педагогического института
           </p>
         </div>
 
@@ -61,12 +61,12 @@ export function FeaturesSection() {
               <CardHeader>
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-3xl">
-                    {feature.icon === "brain" && "&#129504;"}
-                    {feature.icon === "lock" && "&#128274;"}
-                    {feature.icon === "globe" && "&#127760;"}
-                    {feature.icon === "zap" && "&#9889;"}
-                    {feature.icon === "link" && "&#128279;"}
-                    {feature.icon === "target" && "&#127919;"}
+                    {feature.icon === "book" && "📖"}
+                    {feature.icon === "pen" && "✍️"}
+                    {feature.icon === "users" && "🎓"}
+                    {feature.icon === "archive" && "🗂️"}
+                    {feature.icon === "map" && "🗺️"}
+                    {feature.icon === "target" && "🔍"}
                   </span>
                   <Badge variant="secondary" className="bg-accent text-accent-foreground">
                     {feature.badge}
