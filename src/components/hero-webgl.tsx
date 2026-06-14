@@ -1,18 +1,10 @@
 import { Canvas, extend, useFrame } from "@react-three/fiber"
-import { useAspect, useTexture } from "@react-three/drei"
 import { useMemo, useRef, useState, useEffect } from "react"
 import * as THREE from "three"
 
-const TEXTUREMAP = { src: "https://i.postimg.cc/XYwvXN8D/img-4.png" }
-const DEPTHMAP = { src: "https://i.postimg.cc/2SHKQh2q/raw-4.webp" }
-
 extend(THREE as unknown as Record<string, unknown>)
 
-const WIDTH = 300
-const HEIGHT = 300
-
 const Scene = () => {
-  const [rawMap, depthMap] = useTexture([TEXTUREMAP.src, DEPTHMAP.src])
   const meshRef = useRef<THREE.Mesh>(null)
 
   const material = useMemo(() => {
@@ -25,14 +17,10 @@ const Scene = () => {
     `
 
     const fragmentShader = `
-      uniform sampler2D uTexture;
-      uniform sampler2D uDepthMap;
       uniform vec2 uPointer;
-      uniform float uProgress;
       uniform float uTime;
       varying vec2 vUv;
 
-      // Simple noise function
       float random(vec2 st) {
         return fract(sin(dot(st.xy, vec2(12.9898,78.233))) * 43758.5453123);
       }
@@ -45,70 +33,62 @@ const Scene = () => {
         float c = random(i + vec2(0.0, 1.0));
         float d = random(i + vec2(1.0, 1.0));
         vec2 u = f * f * (3.0 - 2.0 * f);
-        return mix(a, b, u.x) + (c - a)* u.y * (1.0 - u.x) + (d - b) * u.x * u.y;
+        return mix(a, b, u.x) + (c - a) * u.y * (1.0 - u.x) + (d - b) * u.x * u.y;
       }
 
       void main() {
         vec2 uv = vUv;
 
-        // Depth-based displacement
-        float depth = texture2D(uDepthMap, uv).r;
-        vec2 displacement = depth * uPointer * 0.01;
-        vec2 distortedUv = uv + displacement;
+        vec2 pointer = uPointer * 0.3;
+        vec2 distorted = uv + pointer * 0.04;
 
-        // Base texture
-        vec4 baseColor = texture2D(uTexture, distortedUv);
+        float n1 = noise(distorted * 4.0 + uTime * 0.15);
+        float n2 = noise(distorted * 8.0 - uTime * 0.1);
+        float n3 = noise(distorted * 2.0 + uTime * 0.05);
 
-        // Create scanning effect
-        float aspect = ${WIDTH}.0 / ${HEIGHT}.0;
-        vec2 tUv = vec2(uv.x * aspect, uv.y);
-        vec2 tiling = vec2(120.0);
-        vec2 tiledUv = mod(tUv * tiling, 2.0) - 1.0;
+        float wave = sin(distorted.x * 6.0 + uTime * 0.8 + n1 * 2.0) * 0.5 + 0.5;
+        float wave2 = sin(distorted.y * 5.0 - uTime * 0.6 + n2 * 2.0) * 0.5 + 0.5;
 
-        float brightness = noise(tUv * tiling * 0.5);
-        float dist = length(tiledUv);
-        float dot = smoothstep(0.5, 0.49, dist) * brightness;
+        float scan = sin(uv.y * 80.0 + uTime * 0.5) * 0.03 + 0.97;
 
-        // Flow effect based on progress
-        float flow = 1.0 - smoothstep(0.0, 0.02, abs(depth - uProgress));
+        float combined = wave * wave2 * n3;
+        float glow = smoothstep(0.3, 0.8, combined);
 
-        // Red scanning overlay
-        vec3 mask = vec3(dot * flow * 10.0, 0.0, 0.0);
+        vec3 dark = vec3(0.02, 0.0, 0.0);
+        vec3 mid = vec3(0.18, 0.0, 0.0);
+        vec3 bright = vec3(0.85, 0.05, 0.05);
 
-        // Combine effects
-        vec3 final = baseColor.rgb + mask;
+        vec3 col = mix(dark, mid, glow);
+        col = mix(col, bright, pow(glow, 3.0));
+        col *= scan;
 
-        gl_FragColor = vec4(final, 1.0);
+        float dist = length(uv - vec2(0.5));
+        col *= smoothstep(0.85, 0.2, dist);
+
+        gl_FragColor = vec4(col, 1.0);
       }
     `
 
     return new THREE.ShaderMaterial({
       uniforms: {
-        uTexture: { value: rawMap },
-        uDepthMap: { value: depthMap },
         uPointer: { value: new THREE.Vector2(0, 0) },
-        uProgress: { value: 0 },
         uTime: { value: 0 },
       },
       vertexShader,
       fragmentShader,
     })
-  }, [rawMap, depthMap])
-
-  const [w, h] = useAspect(WIDTH, HEIGHT)
+  }, [])
 
   useFrame(({ clock, pointer }) => {
     if (material.uniforms) {
-      material.uniforms.uProgress.value = Math.sin(clock.getElapsedTime() * 0.5) * 0.5 + 0.5
       material.uniforms.uPointer.value = pointer
       material.uniforms.uTime.value = clock.getElapsedTime()
     }
   })
 
-  const scaleFactor = 0.3
   return (
-    <mesh ref={meshRef} scale={[w * scaleFactor, h * scaleFactor, 1]} material={material}>
-      <planeGeometry />
+    <mesh ref={meshRef} scale={[2, 2, 1]} material={material}>
+      <planeGeometry args={[1, 1, 32, 32]} />
     </mesh>
   )
 }
