@@ -159,6 +159,43 @@ export function ApplicationsTimeline() {
         </div>
       ),
     },
+    {
+      title: "Игровые упражнения на LearningApps",
+      content: (
+        <div>
+          <p className="text-white text-sm md:text-base font-normal mb-6 leading-relaxed">
+            Интерактивные игровые задания, созданные на платформе LearningApps — для вовлечённого и
+            увлекательного закрепления материала на уроках.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {[
+              { title: "Найти пару", url: "https://learningapps.org/display?v=p9zz4wqz226" },
+              { title: "Ввод текста", url: "https://learningapps.org/display?v=pvk88mww526" },
+              { title: "Викторина", url: "https://learningapps.org/display?v=pk1472afn26" },
+              { title: "Кто хочет стать миллионером", url: "https://learningapps.org/display?v=pbo5ydo2c26" },
+              { title: "Пазл «Угадай-ка»", url: "https://learningapps.org/display?v=p8et2b05526" },
+              { title: "Кроссворд", url: "https://learningapps.org/display?v=ph3kmip5a26" },
+              { title: "Слова из букв", url: "https://learningapps.org/display?v=ptc6p8ndc26" },
+              { title: "Хронологическая линейка", url: "https://learningapps.org/display?v=pxfm5zi8j26" },
+              { title: "Сортировка картинок", url: "https://learningapps.org/display?v=pcviz1ihj26" },
+              { title: "Где находится это", url: "https://learningapps.org/display?v=pg5b9d3oc26" },
+              { title: "Виселица или скачки", url: "https://learningapps.org/display?v=pkc0sduk326" },
+            ].map((item, i) => (
+              <a
+                key={i}
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 p-3 rounded-lg border border-red-500/20 hover:border-red-500/60 hover:bg-red-500/5 transition-all duration-200 group"
+              >
+                <div className="w-2 h-2 bg-red-500 rounded-full shrink-0"></div>
+                <div className="text-white text-sm font-medium group-hover:text-red-400 transition-colors">{item.title}</div>
+              </a>
+            ))}
+          </div>
+        </div>
+      ),
+    },
   ]
 
   return (
