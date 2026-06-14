@@ -98,6 +98,67 @@ export function ApplicationsTimeline() {
         </div>
       ),
     },
+    {
+      title: "Онлайн-тесты и интерактивные задания",
+      content: (
+        <div>
+          <p className="text-white text-sm md:text-base font-normal mb-6 leading-relaxed">
+            Подборка интерактивных тестов и заданий для проверки знаний по теме безопасности, разработанных
+            на различных образовательных платформах.
+          </p>
+          <div className="space-y-4">
+            <a
+              href="https://banktestov.ru/test/113879"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 p-3 rounded-lg border border-red-500/20 hover:border-red-500/60 hover:bg-red-500/5 transition-all duration-200 group"
+            >
+              <div className="w-2 h-2 bg-red-500 rounded-full shrink-0"></div>
+              <div>
+                <div className="text-white text-sm font-medium group-hover:text-red-400 transition-colors">Банк тестов</div>
+                <div className="text-gray-500 text-xs">banktestov.ru</div>
+              </div>
+            </a>
+            <a
+              href="https://onlinetestpad.com/u6qxlegostp7o"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 p-3 rounded-lg border border-red-500/20 hover:border-red-500/60 hover:bg-red-500/5 transition-all duration-200 group"
+            >
+              <div className="w-2 h-2 bg-red-500 rounded-full shrink-0"></div>
+              <div>
+                <div className="text-white text-sm font-medium group-hover:text-red-400 transition-colors">Online Test Pad</div>
+                <div className="text-gray-500 text-xs">onlinetestpad.com</div>
+              </div>
+            </a>
+            <a
+              href="https://forms.yandex.ru/u/6a2e55b184227c6a9770e49b"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 p-3 rounded-lg border border-red-500/20 hover:border-red-500/60 hover:bg-red-500/5 transition-all duration-200 group"
+            >
+              <div className="w-2 h-2 bg-red-500 rounded-full shrink-0"></div>
+              <div>
+                <div className="text-white text-sm font-medium group-hover:text-red-400 transition-colors">Яндекс Формы</div>
+                <div className="text-gray-500 text-xs">forms.yandex.ru</div>
+              </div>
+            </a>
+            <a
+              href="https://urok.1c.ru/share/task/e264e5dff42369e1b13ff62f31e8d26e/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 p-3 rounded-lg border border-red-500/20 hover:border-red-500/60 hover:bg-red-500/5 transition-all duration-200 group"
+            >
+              <div className="w-2 h-2 bg-red-500 rounded-full shrink-0"></div>
+              <div>
+                <div className="text-white text-sm font-medium group-hover:text-red-400 transition-colors">1С:Урок</div>
+                <div className="text-gray-500 text-xs">urok.1c.ru</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      ),
+    },
   ]
 
   return (
