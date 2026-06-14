@@ -3,75 +3,96 @@ import { Timeline } from "@/components/ui/timeline"
 export function ApplicationsTimeline() {
   const data = [
     {
-      title: "Учебные проекты",
+      title: "Безопасность на улице и дома",
       content: (
         <div>
           <p className="text-white text-sm md:text-base font-normal mb-6 leading-relaxed">
-            На первом курсе я уже выполнил ряд учебных работ по отечественной и всеобщей истории. Каждый проект —
-            это шаг к глубокому пониманию прошлого и умению его анализировать.
+            Учебный проект — брошюра «Безопасность на улице и дома. Простые правила, которые спасут жизнь».
+            Включает правила поведения на улице и дома, оформленные в наглядный дидактический материал для школьников.
           </p>
+          <div className="mb-6">
+            <img
+              src="https://cdn.poehali.dev/projects/719842d6-d2bc-4fa6-a8af-5161c873974d/bucket/f7b5f4f2-1e83-472d-9d65-c3f16f743796.png"
+              alt="Безопасность на улице и дома"
+              className="rounded-lg w-full max-w-lg object-cover border border-red-500/20"
+            />
+          </div>
           <div className="space-y-3">
             <div className="flex items-center gap-3 text-red-400 text-sm">
               <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-              Реферат «Реформы Петра I и их значение для России»
+              Правила безопасности на улице: освещённые маршруты, незнакомцы, преследование
             </div>
             <div className="flex items-center gap-3 text-red-400 text-sm">
               <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-              Эссе «Причины распада СССР: взгляд историка»
+              Правила безопасности дома: электричество, газ, незнакомцы у двери
             </div>
             <div className="flex items-center gap-3 text-red-400 text-sm">
               <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-              Хронологическая таблица «Основные события XX века»
+              Наглядное оформление для использования на уроках ОБЖ
             </div>
           </div>
         </div>
       ),
     },
     {
-      title: "Научная деятельность",
+      title: "Видеоматериал по безопасности",
       content: (
         <div>
           <p className="text-white text-sm md:text-base font-normal mb-6 leading-relaxed">
-            Участвую в студенческих научных конференциях и олимпиадах. Исследую темы, которые помогают лучше
-            понять историческое наследие и современность.
+            Видеоурок «Безопасность на улице и дома — правила и советы» — наглядное пособие для проведения
+            классных часов и уроков ОБЖ в начальной и средней школе.
           </p>
+          <div className="mb-6">
+            <img
+              src="https://cdn.poehali.dev/projects/719842d6-d2bc-4fa6-a8af-5161c873974d/bucket/5dbe51d0-63d2-4650-8ac0-b511cfb87b27.png"
+              alt="Видеоматериал по безопасности"
+              className="rounded-lg w-full max-w-lg object-cover border border-red-500/20"
+            />
+          </div>
           <div className="space-y-3">
             <div className="flex items-center gap-3 text-red-400 text-sm">
               <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-              Участие в студенческой научной конференции
+              Видеопособие для классных часов и уроков ОБЖ
             </div>
             <div className="flex items-center gap-3 text-red-400 text-sm">
               <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-              Работа в студенческом историческом кружке
+              Подходит для учеников начальной и средней школы
             </div>
             <div className="flex items-center gap-3 text-red-400 text-sm">
               <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-              Подготовка доклада по избранной теме
+              Наглядный формат для лучшего усвоения материала
             </div>
           </div>
         </div>
       ),
     },
     {
-      title: "Педагогическая практика",
+      title: "Практические ситуации и действия",
       content: (
         <div>
           <p className="text-white text-sm md:text-base font-normal mb-6 leading-relaxed">
-            Готовлюсь к педагогической практике: изучаю методику преподавания, разрабатываю планы уроков
-            и учусь доступно объяснять исторические процессы школьникам.
+            Дидактический материал «Практические ситуации и действия» — разбор конкретных опасных ситуаций:
+            незнакомцы, пожар, запах газа, подозрительные предметы. С номерами экстренных служб и советами родителям.
           </p>
+          <div className="mb-6">
+            <img
+              src="https://cdn.poehali.dev/projects/719842d6-d2bc-4fa6-a8af-5161c873974d/bucket/28628959-47f6-4243-bbe9-0da69cf0bdfb.png"
+              alt="Практические ситуации и действия"
+              className="rounded-lg w-full max-w-lg object-cover border border-red-500/20"
+            />
+          </div>
           <div className="space-y-3">
             <div className="flex items-center gap-3 text-red-400 text-sm">
               <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-              Разработка конспекта урока по истории России
+              Алгоритмы действий в экстренных ситуациях для детей
             </div>
             <div className="flex items-center gap-3 text-red-400 text-sm">
               <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-              Создание дидактических материалов для школьников
+              Экстренные службы: 112, 101, 102, 103, 104
             </div>
             <div className="flex items-center gap-3 text-red-400 text-sm">
               <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-              Изучение современных методов интерактивного обучения
+              Советы родителям по проверке домашней безопасности
             </div>
           </div>
         </div>
@@ -83,10 +104,9 @@ export function ApplicationsTimeline() {
     <section id="applications" className="py-20 bg-black">
       <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-10">
         <div className="text-center mb-16">
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-white mb-6">Мои проекты и достижения</h2>
+          <h2 className="font-display text-3xl md:text-5xl font-bold text-white mb-6">Мои проекты и работы</h2>
           <p className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-            Учебные работы, научные исследования и педагогические разработки — всё, чем я занимаюсь
-            на первом курсе педагогического института.
+            Учебные и методические материалы, созданные в рамках педагогической подготовки на первом курсе.
           </p>
         </div>
 

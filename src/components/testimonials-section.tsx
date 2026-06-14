@@ -1,25 +1,22 @@
 import { Card, CardContent } from "@/components/ui/card"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 
 const testimonials = [
   {
     name: "Профессор Иванова А.В.",
     role: "Кафедра отечественной истории",
-    avatar: "/professional-woman-scientist.png",
     content:
       "Студент проявляет искренний интерес к предмету, задаёт глубокие вопросы и тщательно работает с первоисточниками. Большой потенциал.",
   },
   {
     name: "Доцент Петров С.И.",
     role: "Кафедра педагогики и методики",
-    avatar: "/cybersecurity-expert-man.jpg",
     content:
       "Грамотно строит аргументацию в письменных работах. Видна системность мышления и серьёзный подход к академическому письму.",
   },
   {
     name: "Старостова М.К.",
     role: "Студенческий научный кружок",
-    avatar: "/asian-woman-tech-developer.jpg",
     content:
       "Активный участник нашего исторического кружка. Всегда приходит подготовленным, делится интересными находками из архивных источников.",
   },
@@ -43,8 +40,7 @@ export function TestimonialsSection() {
                 <p className="text-card-foreground mb-6 leading-relaxed italic">"{testimonial.content}"</p>
                 <div className="flex items-center gap-4">
                   <Avatar>
-                    <AvatarImage src={testimonial.avatar || "/placeholder.svg"} alt={testimonial.name} />
-                    <AvatarFallback>
+                    <AvatarFallback className="bg-red-500/20 text-red-400 font-bold">
                       {testimonial.name
                         .split(" ")
                         .map((n) => n[0])
